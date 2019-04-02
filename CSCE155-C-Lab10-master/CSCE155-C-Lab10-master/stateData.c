@@ -80,6 +80,10 @@ int main(int argc, char **argv) {
 
 void toXMLFile(char **states, int *populations, int numStates) {
   // TODO: you need to implement this
+  FILE* outFile = fopen("stateData.xml", "w");
+  if (outFile == NULL) {
+    printf("Couldn\'t open the file.\n");
+  }
 }
 
 void rtrim(char *str) {
