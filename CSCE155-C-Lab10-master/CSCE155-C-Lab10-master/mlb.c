@@ -28,14 +28,26 @@ int main(int argc, char **argv) {
 
   int i;
   char **teams = (char **)malloc(sizeof(char *) * numTeams);
-  double *winPercentages = (double *)malloc(sizeof(double) * numTeams);
+  double **winPercentages = (double **)malloc(sizeof(double*) * numTeams);
   for (i = 0; i < numTeams; i++) {
     teams[i] = (char *)malloc(sizeof(char) * maxSize);
+  }
+  for (i = 0; i < numTeams; i++) {
+    winPercentages[i] = (double*)malloc(sizeof(double) * 1);
   }
 
   // TODO: open the file, read it line by line, tokenize it to get the
   //      team name, wins, and losses, and store the results into
   //      teams[] and winPercentagesp[]
+  FILE* inFile = fopen(filePath, "r");
+  
+  if (inFile == NULL) {
+    printf("Couldn't open the file.\n");
+    return -1;
+  }
+  
+  for (i = 0; i < numTeams; i++) {
+    fscanf(inFile, "%s %d %d", teams[i]);
 
   // sort them
   sortMLB(teams, winPercentages, numTeams);
