@@ -48,10 +48,11 @@ int main(int argc, char **argv) {
   
   for (i = 0; i < numTeams; i++) {
     int win, lose;
-    tempBuffer = strtok(inFile, "\n");
-    fscanf(tempBuffer, "%s %d %d", teams[i], &win, &lose);
-    winPercentage[i] = win / (win + lose);
+    fscanf(inFile, "%s %d %d", teams[i], &win, &lose);
+    winPercentages[i] = win / (win + lose);
   }
+  
+  fclose(inFile);
 
   // sort them
   sortMLB(teams, winPercentages, numTeams);
