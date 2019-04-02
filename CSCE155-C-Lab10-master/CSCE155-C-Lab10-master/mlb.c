@@ -39,14 +39,29 @@ int main(int argc, char **argv) {
   FILE* inFile = fopen(filePath, "r");
   
   if (inFile == NULL) {
-    printf("Couldn\'t open the file.\n");
-    return -1;
+    fprintf(stderr, "Couldn\'t open the file %s.\n", inFile);
+    exit(1);
   }
   
+  /*
   for (i = 0; i < numTeams; i++) {
     int win, lose;
     fscanf(inFile, "%s %d %d", teams[i], &win, &lose);
     winPercentages[i] = (double)win / (double)(win + lose);
+  }
+  */
+  i = 0;
+  while(fgets(tempBuffer, 100, inFile) != NULL) {
+    tempBuffer[strlen(temBuffer) - 1] = '\0';
+    char* tempTeam = strtok(tempBuffer, " ");
+    strcpy(teams[i], tempTeam);
+    char* tempWin = strtok(NULL, " ");
+    char* tempLose = strtok(NULL, " ");
+    winPercentages[i] = (double)atoi(tempWin) / (double)atoi(tempLose);
+    free(tempTeam);
+    free(tempWin);
+    free(tempLose);
+    i++;
   }
   
   fclose(inFile);
