@@ -43,13 +43,12 @@ int main(int argc, char **argv) {
     exit(1);
   }
   
-  /*
   for (i = 0; i < numTeams; i++) {
     int win, lose;
     fscanf(inFile, "%s %d %d", teams[i], &win, &lose);
     winPercentages[i] = (double)win / (double)(win + lose);
   }
-  */
+  /*
   i = 0;
   while(fgets(tempBuffer, 100, inFile) != NULL) {
     tempBuffer[strlen(tempBuffer) - 1] = '\0';
@@ -63,6 +62,7 @@ int main(int argc, char **argv) {
     free(tempLose);
     i++;
   }
+  */
   
   fclose(inFile);
 
