@@ -82,7 +82,7 @@ void toXMLFile(char **states, int *populations, int numStates) {
   // TODO: you need to implement this
   FILE* outFile = fopen("stateData.xml", "w");
   if (outFile == NULL) {
-    printf(stderr, "Couldn\'t open the file %s.\n", "stateData.xml");
+    fprintf(stderr, "Couldn\'t open the file %s.\n", "stateData.xml");
     exit(1);
   }
   
@@ -92,10 +92,10 @@ void toXMLFile(char **states, int *populations, int numStates) {
   for (i = 0; i < numStates; i++) {
     fprintf(outFile, "<STATE>\n");
     fprintf(outFile, "<NAME> %s </NAME>\n", states[i]);
-    fprintf(outFile, "<POPULATION> %d <\POPULATION>\n", statePopulations[i]);
-    fprintf(outFile, "<\STATE>\n");
+    fprintf(outFile, "<POPULATION> %d </POPULATION>\n", statePopulations[i]);
+    fprintf(outFile, "</STATE>\n");
   }
-  fprintf(outFile, "<\STATES>\n");
+  fprintf(outFile, "</STATES>\n");
   
   fclose(outFile);
   return;
