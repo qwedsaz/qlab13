@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
   for (i = 0; i < numTeams; i++) {
     int win, lose;
     fscanf(inFile, "%s %d %d", teams[i], &win, &lose);
-    winPercentages[i] = win / (win + lose);
+    winPercentages[i] = (double)win / (double)(win + lose);
   }
   
   fclose(inFile);
