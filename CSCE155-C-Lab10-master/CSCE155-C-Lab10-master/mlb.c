@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
   FILE* inFile = fopen(filePath, "r");
   
   if (inFile == NULL) {
-    printf("Couldn't open the file.\n");
+    printf("Couldn\'t open the file.\n");
     return -1;
   }
   
