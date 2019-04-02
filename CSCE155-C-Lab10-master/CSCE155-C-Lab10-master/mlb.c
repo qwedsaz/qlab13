@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
   */
   i = 0;
   while(fgets(tempBuffer, 100, inFile) != NULL) {
-    tempBuffer[strlen(temBuffer) - 1] = '\0';
+    tempBuffer[strlen(tempBuffer) - 1] = '\0';
     char* tempTeam = strtok(tempBuffer, " ");
     strcpy(teams[i], tempTeam);
     char* tempWin = strtok(NULL, " ");
