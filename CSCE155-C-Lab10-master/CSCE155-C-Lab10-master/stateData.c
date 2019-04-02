@@ -83,7 +83,9 @@ void toXMLFile(char **states, int *populations, int numStates) {
   FILE* outFile = fopen("stateData.xml", "w");
   if (outFile == NULL) {
     printf("Couldn\'t open the file.\n");
+    return -1;
   }
+  
 }
 
 void rtrim(char *str) {
